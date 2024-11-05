@@ -18,12 +18,16 @@ conteo = conteoCola 0
 -- Ejercicio ii de la pregunta 1: mergesort
 
 -- Primero definimos la funcion merge, que toma dos listas ordenadas y las une manteniendo el orden
-merge :: [Integer] -> [Integer] -> [Integer]
--- Como Haskell es declarativo, debemos implementarlo como una recursion, Casos base:
-merge a [] = a -- Como a y b estan ordenados, si alguno de ellos es vacio, entonces el resultado estara ordenado
-merge [] b = b
+-- La defino como recursion de cola porque soy fan d optimizar la pila (?)
+-- Obtenemos el merge al tomar [] como primer argumento
+mergeCola :: [Integer] -> [Integer] -> [Integer] -> [Integer]
+-- Como Haskell es declarativo, debemos implementarlo como una recursion.
+-- Hacemos recursion de cola: Lo que hemos calculado de la lista se guarda en p.
+-- Caso base:
+mergeCola p a [] = p ++ a -- Como a y b estan ordenados, si alguno de ellos es vacio, entonces el resultado estara ordenado
+mergeCola p [] b = p ++ b
 -- Caso recursivo:  Hacemos la llamada dependiendo de los valores de los heads de las listas
-merge (as:a) (bs:b) = case compare as bs of  --Conservamos el head que sea menor, y seguimos la recursion con el resto
-                                LT -> as : merge a (bs:b)
-                                GT -> bs : merge (as:a) b
-                                EQ -> as : merge a b
+mergeCola p (as:a) (bs:b) = case compare as bs of  --Conservamos el head que sea menor, y seguimos la recursion con el resto
+                                LT -> seq (p ++ [as]) $ mergeCola  (p ++ [as]) a (bs:b)
+                                GT -> seq (p ++ [bs]) $ mergeCola (p ++ [bs]) (as:a) b
+                                EQ -> seq (p ++ [as]) $ mergeCola (p ++[as])a b -- este caso nos permite evitar duplicados
