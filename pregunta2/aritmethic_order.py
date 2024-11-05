@@ -12,7 +12,7 @@ def handle_action(arguments):
     expression = arguments[2:]
    
     if arguments[0] == "EVAL": print(evaluar(order, expression))
-    elif arguments[0] == "MOSTRAR": mostrar(order, expression)
+    elif arguments[0] == "MOSTRAR": print(mostrar(order, expression))
     else: print("Comando no reconocido. Opciones: EVAL, MOSTRAR, SALIR")
         
 
