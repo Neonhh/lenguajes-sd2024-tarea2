@@ -28,5 +28,7 @@ def main():
         if action.upper() == "SALIR":
             break
 
+        handle_action(action.split(" "))
+
 if __name__ == "__main__":
     main()
