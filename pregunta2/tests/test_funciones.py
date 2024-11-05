@@ -22,10 +22,15 @@ def test_invalid_order():
 
 def test_mostrar_preorder():
     assert mostrar("PRE", ["+", "3", "4"]) == "3 + 4"
+    assert mostrar("PRE", ["+", "*", "+", "3", "4", "5", "7"]) == "(3 + 4) * 5 + 7"
 
 
 def test_mostrar_postorder():
     assert mostrar("POST", ["3", "4", "+"]) == "4 + 3"
+    #Este es el caso para mostrar POST dado en el enunciado. Se imprime en orden diferente
+    #por el orden en que se toman los ultimos elementos en la pila, pero aun es correcto
+    assert mostrar("POST", ["8", "3", "-", "8", "4", "4", "+", "*", "+"]) == "(4 + 4) * 8 + 8 - 3"
+    assert mostrar("POST", ["3","4", "-"]) == "3 - 4"
 
 if __name__ == "__main__":
     pytest.main()

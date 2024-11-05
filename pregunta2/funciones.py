@@ -1,6 +1,21 @@
 def es_signo(elemento):
     return (elemento == "+" or elemento == "-" or elemento == "*" or elemento == "/")
 
+#Dados dos operandos y el operador, verifica si hay que
+#colocarle parentesis a la operacion respectiva.
+def corregirPrecedencia(a,b, operador):
+
+    # Si es necesario coloca los parentesis, ademas maneja un poco cosas de espaciado
+    # En la impresion
+    if ("+" in a or "-" in a):
+        a = "(" + a + ") "
+        b = " " + b
+    if ("+" in b or "-" in b):
+        b = " (" + b + ")"
+        a = " " + a
+
+    return a + operador + b
+
 # Evalua la expresion dada utilizando preorder o postorder
 def evaluar(order, expression):
 
@@ -58,9 +73,9 @@ def mostrar(order, expression):
     #Se crea un diccionario para manejar las operaciones
     operaciones = {
         "+": lambda a, b: a + " + " + b,
-        "-": lambda a, b: a + " - " + b,
-        "*": lambda a, b: a + " * " + b,
-        "/": lambda a, b: a + " / " + b
+        "-": lambda a, b: b + " - " + a,
+        "*": lambda a, b: corregirPrecedencia(a, b, "*"),
+        "/": lambda a, b: corregirPrecedencia(b, a, "/")
     }
 
     for elemento in expression:
