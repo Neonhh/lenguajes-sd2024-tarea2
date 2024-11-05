@@ -92,4 +92,3 @@ def mostrar(order, expression):
             operandos.append(elemento)
     
     return operandos[0]
-

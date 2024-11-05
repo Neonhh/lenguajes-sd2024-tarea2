@@ -27,11 +27,6 @@ def main():
         
         if action.upper() == "SALIR":
             break
-        #try:
-        handle_action(action.split(" "))
-        #except:E
-         #   print("Comando no reconocido. Opciones: EVAL <orden> <expr>, MOSTRAR <orden> <expr>, SALIR")
-          #  continue
 
 if __name__ == "__main__":
     main()
