@@ -9,9 +9,9 @@ from funciones import evaluar, mostrar
 def handle_action(arguments):
     
     order = arguments[1]
-    expression = arguments[2]
+    expression = arguments[2:]
    
-    if arguments[0] == "EVAL": evaluar(order, expression)
+    if arguments[0] == "EVAL": print(evaluar(order, expression))
     elif arguments[0] == "MOSTRAR": mostrar(order, expression)
     else: print("Comando no reconocido. Opciones: EVAL, MOSTRAR, SALIR")
         
@@ -27,11 +27,11 @@ def main():
         
         if action.upper() == "SALIR":
             break
-        try:
-            handle_action(action.split(" "))
-        except:
-            print("Comando no reconocido. Opciones: EVAL <orden> <expr>, MOSTRAR <orden> <expr>, SALIR")
-            continue
+        #try:
+        handle_action(action.split(" "))
+        #except:E
+         #   print("Comando no reconocido. Opciones: EVAL <orden> <expr>, MOSTRAR <orden> <expr>, SALIR")
+          #  continue
 
 if __name__ == "__main__":
     main()
