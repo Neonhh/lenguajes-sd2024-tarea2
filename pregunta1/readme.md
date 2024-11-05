@@ -1,5 +1,8 @@
 # Respuesta a la pregunta 1
 
+Nombre: Nestor Herrera
+Carnet: 18-10796
+
 En el archivo `pregunta1.hs` se encuentran las dos funciones: count(n), (llamada `conteo` porque count parece nombre de funcion predeterminada),
 y `mergeSort`.
 
