@@ -1,4 +1,6 @@
 # Respuesta 3, parte C - Iterador sort
+Nombre: Nestor Herrera
+Carnet: 18-10796
 
 En esta carpeta se encuentra el iterador que devuelve los elementos de una lista de enteros en orden no decreciente.
 
