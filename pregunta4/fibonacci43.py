@@ -45,7 +45,3 @@ def fibIter43(n):
         n, a, b, c, d = n-3, b, c, d, a + b + c + d
     # Al llegar al caso base se devuelve d
     return d
-
-print(fibCola43aux(13))
-print(fibIter43(13))
-print(fibRecursivo43(13))
