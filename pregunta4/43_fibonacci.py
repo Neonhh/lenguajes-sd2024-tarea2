@@ -7,7 +7,7 @@
 
 
 # Implementacion recursiva
-def fibRecursivo34(n):
+def fibRecursivo43(n):
     if n >= 0 and n < 12:
         return n
     else:
@@ -16,7 +16,7 @@ def fibRecursivo34(n):
 
 # Implementacion recursiva de cola
 # Esta da como resultado 9 si se llama con un caso base
-def fibCola34(n, a=0, b=3, c=6, d=9):
+def fibCola43(n, a=0, b=3, c=6, d=9):
     if n >= 0 and n < 12:
         return d
     else:
@@ -24,12 +24,12 @@ def fibCola34(n, a=0, b=3, c=6, d=9):
 
 # Esta es la implementacion para un caso mas general.
 # Devuelve el resultado correcto aun en el caso base
-def fibCola34aux(n):
+def fibCola43aux(n):
     if n >= 0 and n < 12: return n
     else: return fibCola34(n, 0, 3, 6, 9)
 
 # Implementacion iterativa a partir de la implementacion recursiva de cola
-def fibIter34(n):
+def fibIter43(n):
 
     # Parentesis: aqui puedo corregir mas facilmente el tema
     # con el caso base por los multiples valores
