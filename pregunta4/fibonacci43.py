@@ -11,22 +11,23 @@ def fibRecursivo43(n):
     if n >= 0 and n < 12:
         return n
     else:
-        return fibRecursivo34(n-3) + fibRecursivo34(n-2*3) + \
-                fibRecursivo34(n-3*3) + fibRecursivo34(n-4*3)
+        return fibRecursivo43(n-3) + fibRecursivo43(n-2*3) + \
+                fibRecursivo43(n-3*3) + fibRecursivo43(n-4*3)
 
 # Implementacion recursiva de cola
-# Esta da como resultado 9 si se llama con un caso base
-def fibCola43(n, a=0, b=3, c=6, d=9):
+# Esta es solo para el caso recursivo. a, b, c y d dependen de n
+def fibCola43(n, a, b, c, d):
     if n >= 0 and n < 12:
         return d
     else:
-        return fibCola34(n-3, b, c, d, a + b + c + d)
+        return fibCola43(n-3, b, c, d, a + b + c + d)
 
-# Esta es la implementacion para un caso mas general.
-# Devuelve el resultado correcto aun en el caso base
+# Funcion auxiliar para la llamada recursiva de cola
+# Calcula los valores que deben tener a, b, c y d para poder llegar
+# a la posicion n
 def fibCola43aux(n):
     if n >= 0 and n < 12: return n
-    else: return fibCola34(n, 0, 3, 6, 9)
+    else: return fibCola43(n, n%3, n%3 + 3, n%3 + 6, n%3 + 9)
 
 # Implementacion iterativa a partir de la implementacion recursiva de cola
 def fibIter43(n):
@@ -37,10 +38,14 @@ def fibIter43(n):
     
     # Los valores de a, b, c y d correspondientes a la llamada de la
     # funcion recursiva de cola
-    a, b, c, d = 0, 3, 6, 9
+    a, b, c, d = n%3, n%3 + 3, n%3 + 6, n%3 + 9
     
     while (n >= 12):
         #Asignacion simultanea equivalente a llamar la funcion con nuevos argumentos
         n, a, b, c, d = n-3, b, c, d, a + b + c + d
     # Al llegar al caso base se devuelve d
     return d
+
+print(fibCola43aux(13))
+print(fibIter43(13))
+print(fibRecursivo43(13))
