@@ -32,8 +32,8 @@ for n in inputs:
 
 # Graficamos
 plt.plot(inputs, tiemposFibRecursivo, label='Recursivo estandar')
-plt.plot(inputs, tiemposFibCola, label='Recursivo de cola')
 plt.plot(inputs, tiemposFibIter, label='Iterativo')
+plt.plot(inputs, tiemposFibCola, label='Recursivo de cola')
 
 plt.xlabel('n')
 plt.ylabel('Tiempo (s)')
